@@ -33,6 +33,7 @@ public class GameScreen extends ApplicationAdapter {
 		player1 = new Texture("player1win.png");
 		player2 = new Texture("player2win.png");
 		duel = new Texture("duel.png");
+		//gg
 	}
 
 	@Override
