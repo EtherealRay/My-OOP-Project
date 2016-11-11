@@ -38,15 +38,15 @@ public class GameScreen extends ApplicationAdapter {
 		player1 = new Texture("player1win.png");
 		player2 = new Texture("player2win.png");
 		duel = new Texture("duel.png");
-		themeSound = Gdx.audio.newMusic(Gdx.files.internal("ThemeSong.mp3"));
+//		themeSound = Gdx.audio.newMusic(Gdx.files.internal("ThemeSong.mp3"));
 		duelSound = Gdx.audio.newMusic(Gdx.files.internal("DuelSound.ogg"));
 		gunSound = Gdx.audio.newSound(Gdx.files.internal("GunShot.wav"));
 	}
 
 	@Override
 	public void render () {
-		themeSound.play();
-		themeSound.setVolume(1.0f);
+//		themeSound.play();
+//		themeSound.setVolume(1.0f);
 		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
