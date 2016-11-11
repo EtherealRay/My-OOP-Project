@@ -46,7 +46,7 @@ public class GameScreen extends ApplicationAdapter {
 	@Override
 	public void render () {
 		themeSound.play();
-		themeSound.setVolume(0.2f);
+		themeSound.setVolume(1.0f);
 		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -85,8 +85,6 @@ public class GameScreen extends ApplicationAdapter {
 		duel(winner);
 		
 		batch.end();
-		
-
 		
 
 	}
