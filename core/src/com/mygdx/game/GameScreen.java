@@ -25,7 +25,7 @@ public class GameScreen extends ApplicationAdapter {
 	int winner;
 	boolean trigger=true;
 	long time = System.currentTimeMillis();
-	long randomNum = time+MathUtils.random(8000, 10000);
+	long randomNum = time+MathUtils.random(10000, 15000);
 	Music themeSound;
 	Music duelSound;
 	Sound gunSound;
