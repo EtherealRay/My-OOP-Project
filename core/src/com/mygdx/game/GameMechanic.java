@@ -21,6 +21,17 @@ public class GameMechanic {
         	GameScreen.trigger=false;
         }
     }
-    
+	
+	public static void duelTimer(){
+		if(System.currentTimeMillis()>=GameScreen.randomNum){
+			GameScreen.batch.draw(GameScreen.duel,810,250);
+			GameScreen.drawButton(GameScreen.buttonP1);
+			GameScreen.drawButton(GameScreen.buttonP2);
+	    	GameScreen.duelSound.play();
+			if(System.currentTimeMillis()>=GameScreen.randomNum+2000){
+				GameScreen.duelSound.stop();
+			}
+		}
+	}
 
 }

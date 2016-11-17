@@ -15,25 +15,13 @@ import com.badlogic.gdx.math.MathUtils;
 public class GameScreen extends ApplicationAdapter {
     public static final int WIDTH = 1920;
     public static final int HEIGHT = 800;
-	SpriteBatch batch; 
-	Texture mccree;
-	Texture mccree2;
+	static SpriteBatch batch; 
+	Texture mccree,mccree2;
 	Texture bg;
-	Texture player1;
-	Texture player2;
-	Texture duel;
-	Texture bq;
-	Texture bw;
-	Texture be;
-	Texture ba;
-	Texture bs;
-	Texture bd;
-	Texture b4;
-	Texture b5;
-	Texture b6;
-	Texture b7;
-	Texture b8;
-	Texture b9;
+	Texture player1,player2;
+	static Texture duel;
+	static Texture bq,bw,be,ba,bs,bd,b4,b5,b6,b7,b8,b9;
+
     public static int winner;
     public static boolean trigger=true;
 	int round=1;
@@ -41,12 +29,12 @@ public class GameScreen extends ApplicationAdapter {
     public static long randomNum = time+MathUtils.random(10000, 15000);
 	int hp1=2;
 	int hp2=2;
-	int buttonP1 = MathUtils.random(1, 6);
-	int buttonP2 = MathUtils.random(11, 16);
+    public static final int buttonP1 = MathUtils.random(1, 6);
+    public static final int buttonP2 = MathUtils.random(11, 16);
 
 
 	Music themeSound;
-	Music duelSound;
+	static Music duelSound;
 	static Sound gunSound;
 	@Override
 	public void create () {
@@ -83,24 +71,14 @@ public class GameScreen extends ApplicationAdapter {
 		batch.draw(mccree, 0, 0);
 		batch.draw(mccree2, WIDTH-600, 0);
 		GameMechanic.gunFire();
-		duelTimer();
+		GameMechanic.duelTimer();
 		drawWinner(winner);
 		batch.end();
 		
 
 	}
 	
-	private void duelTimer(){
-		if(System.currentTimeMillis()>=randomNum){
-			batch.draw(duel,810,250);
-	    	drawButton(buttonP1);
-	    	drawButton(buttonP2);
-			duelSound.play();
-			if(System.currentTimeMillis()>=randomNum+2000){
-				duelSound.stop();
-			}
-		}
-	}
+
 	
     private void drawWinner(int winner) {
         if(winner==1) {
@@ -113,7 +91,7 @@ public class GameScreen extends ApplicationAdapter {
     
 
 
-	private void drawButton(int num){
+	public static void drawButton(int num){
 		int posX1 = 300;
 		int posY1 = 500;
 		int posX2 = WIDTH-300;
