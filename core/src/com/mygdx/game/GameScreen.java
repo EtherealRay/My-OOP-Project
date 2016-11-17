@@ -92,7 +92,7 @@ public class GameScreen extends ApplicationAdapter {
 
 
 	public static void drawButton(int num){
-		int posX1 = 300;
+		int posX1 = 250;
 		int posY1 = 500;
 		int posX2 = WIDTH-300;
 		int posY2 = 500;
