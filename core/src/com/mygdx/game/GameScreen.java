@@ -27,22 +27,18 @@ public class GameScreen extends ApplicationAdapter {
 	static Texture MccreeSheet,MccreeSheet2;
     public static int winner;
     public static boolean trigger=true;
-	int round=1;
     public static long time = System.currentTimeMillis();
     public static long randomNum = time+MathUtils.random(10000, 15000)-8000;
-	int hp1=2;
-	int hp2=2;
     public static final int buttonP1 = MathUtils.random(1, 6);
     public static final int buttonP2 = MathUtils.random(11, 16);
-    
     TextureRegion[] animationFrames,animationFrames2;
     Animation animation,animation2;
     float elapsedTime;
-
-	Music themeSound;
+	Music themeSound,endSound;
 	static Music duelSound;
 	static Sound gunSound;
 	static Sound gunFire;
+	boolean end = false;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -82,7 +78,8 @@ public class GameScreen extends ApplicationAdapter {
 	    animation2 = new Animation(1f/6f,animationFrames2);
 	    elapsedTime = 0f;
 	    
-		themeSound = Gdx.audio.newMusic(Gdx.files.internal("ThemeSong.mp3"));
+		themeSound = Gdx.audio.newMusic(Gdx.files.internal("ThemesSong2.mp3"));
+		endSound = Gdx.audio.newMusic(Gdx.files.internal("VictorySong.mp3"));
 		duelSound = Gdx.audio.newMusic(Gdx.files.internal("DuelSound.ogg"));
 		gunSound = Gdx.audio.newSound(Gdx.files.internal("GunShot.wav"));
 	}
@@ -93,12 +90,14 @@ public class GameScreen extends ApplicationAdapter {
 	    elapsedTime += Gdx.graphics.getDeltaTime();
 		themeSound.play();
 		themeSound.setVolume(0.6f);
+		if(end){
+			themeSound.dispose();
+			endSound.play();
+		}
         batch.begin();
 		batch.draw(bg, 0, 0);
         batch.draw(animation.getKeyFrame(elapsedTime,true),150,200);
         batch.draw(animation2.getKeyFrame(elapsedTime,true),WIDTH-450,200);
-	//	batch.draw(mccree, 0, 0);
-	//	batch.draw(mccree2, WIDTH-600, 0);
 		GameMechanic.gunFire();
 		GameMechanic.duelTimer();
 		drawWinner(winner);
@@ -110,9 +109,11 @@ public class GameScreen extends ApplicationAdapter {
     private void drawWinner(int winner) {
         if(winner==1) {
     		batch.draw(player1, 538, 600);
+    		end = true;
         }
         if(winner==2) {
     		batch.draw(player2, 538, 600);
+    		end = true;
         }
     }
     
