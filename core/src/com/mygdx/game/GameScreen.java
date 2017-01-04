@@ -28,7 +28,7 @@ public class GameScreen extends ApplicationAdapter {
     public static int winner;
     public static boolean trigger=true;
     public static long time = System.currentTimeMillis();
-    public static long randomNum = time+MathUtils.random(10000, 15000)-8000;
+    public static long randomNum = time+MathUtils.random(10000, 15000)+5000;
     public static final int buttonP1 = MathUtils.random(1, 6);
     public static final int buttonP2 = MathUtils.random(11, 16);
     TextureRegion[] animationFrames,animationFrames2;
@@ -48,12 +48,12 @@ public class GameScreen extends ApplicationAdapter {
 		player1 = new Texture("player1win.png");
 		player2 = new Texture("player2win.png");
 		duel = new Texture("duel.png");
-		bq = new Texture("q.png");
-		bw = new Texture("w.png");
-		be = new Texture("e.png");
-		ba = new Texture("a.png");
-		bs = new Texture("s.png");
-		bd = new Texture("d.png");
+		bq = new Texture("Q.png");
+		bw = new Texture("W.png");
+		be = new Texture("E.png");
+		ba = new Texture("A.png");
+		bs = new Texture("S.png");
+		bd = new Texture("D.png");
 		b4 = new Texture("4.png");
 		b5 = new Texture("5.png");
 		b6 = new Texture("6.png");
